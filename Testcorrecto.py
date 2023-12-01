@@ -17,7 +17,7 @@ class Test(TestCase):
             self.assertEqual(json_data, {'Realizado en: ': fecha_actual()})
     def test_historial(self):
         with app.test_client() as c:
-            rv = c.get('/billetera/historial?minumero=21345')
+            rv = c.get('/billetera/historial?minumero=123')
             json_data = rv.get_json()
-            self.assertEqual(json_data, [{'NumeroDestino': '123', 'fecha': fecha_actual(), 'valor': '100'}, {'NumeroDestino': '456', 'fecha': fecha_actual(), 'valor': '100'}])
+            self.assertEqual(json_data, {'Operaciones realizadas': [], 'Pago recibido': [],'Saldo de Luisa': 400})
 
