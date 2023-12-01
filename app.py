@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, render_template
-from unittest import TestCase
 #Creamos fechas con la fecha actual, ejemplo: 11/07/2023
 from datetime import datetime
 def fecha_actual():
@@ -120,7 +119,7 @@ def historial():
     for i in recibidos:
         diccionario["Operaciones realizadas"].append({i[0]:i[2]})
     for i in enviados:
-        diccionario["Operaciones realizadas"].append({i[0]:i[2]})
+        diccionario["Pago recibido"].append({i[0]:i[2]})
     return jsonify(diccionario)
 
 if __name__ == '__main__':
